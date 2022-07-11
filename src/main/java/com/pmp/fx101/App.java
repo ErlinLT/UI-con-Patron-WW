@@ -34,7 +34,7 @@ public class App extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
-    //------------------- MODAL IMPLEMENTATION
+   
     public static FXMLLoader getFXMLLoader( String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader;  
@@ -57,7 +57,7 @@ public class App extends Application {
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
     }
-    // -----------------------------------
+    
     public static void main(String[] args) {
         launch();
     }
