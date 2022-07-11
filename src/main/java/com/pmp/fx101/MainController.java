@@ -16,7 +16,7 @@ import javafx.scene.input.MouseEvent;
 /**
  * FXML Controller class
  *
- * @author obetancourth
+ * @author ERLIN
  */
 public class MainController implements Initializable {
 
@@ -34,7 +34,7 @@ public class MainController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }    
 
     @FXML
