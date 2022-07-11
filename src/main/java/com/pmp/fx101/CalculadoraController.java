@@ -18,7 +18,7 @@ import javafx.collections.FXCollections;
 /**
  * FXML Controller class
  *
- * @author obetancourth
+ * @author ERLIN
  */
 public class CalculadoraController implements Initializable {
 
@@ -76,7 +76,7 @@ public class CalculadoraController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
         txtDisplay.setText(valueToProcess);
         lstOperaciones.setItems(FXCollections.observableArrayList(operationsToDisplay));
     }    
