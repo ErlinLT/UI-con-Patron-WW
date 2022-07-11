@@ -24,7 +24,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 /**
  * FXML Controller class
  *
- * @author obetancourth
+ * @author ERLIN
  */
 public class CategoriasController implements Initializable {
 
