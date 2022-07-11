@@ -6,7 +6,7 @@ package com.pmp.dao;
 
 /**
  *
- * @author obetancourth
+ * @author ERLIN
  */
 public class Categoria {
     
