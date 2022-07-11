@@ -19,7 +19,7 @@ import javafx.scene.control.ToggleGroup;
 /**
  * FXML Controller class
  *
- * @author obetancourth
+ * @author ERLIN
  */
 public class CategoriaController implements Initializable {
 
