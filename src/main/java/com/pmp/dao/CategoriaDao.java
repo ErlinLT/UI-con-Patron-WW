@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 /**
  *
- * @author obetancourth
+ * @author ERLIN
  */
 public class CategoriaDao {
     public static void setup() {
