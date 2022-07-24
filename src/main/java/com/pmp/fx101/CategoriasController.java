@@ -20,7 +20,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
-
 /**
  * FXML Controller class
  *
@@ -31,17 +30,6 @@ public class CategoriasController implements Initializable {
 
     @FXML
     private TableView<Categoria> tblCategorias;
-    @FXML
-    private Button btnVisualizar;
-    @FXML
-    private Button btnNuevo;
-    @FXML
-    private Button btnEditar;
-    @FXML
-    private Button btnEliminar;
-    
-    private Categoria selectedCategoria;
-    private ArrayList<Categoria> categorias;
     @FXML
     private TableColumn<Categoria, Integer> tdId;
     @FXML
@@ -56,9 +44,21 @@ public class CategoriasController implements Initializable {
     private TableColumn<Categoria, String> tdArea;
     @FXML
     private TableColumn<Categoria, String> tdPais;
+    @FXML
+    private Button btnVisualizar;
+    @FXML
+    private Button btnNuevo;
+    @FXML
+    private Button btnEditar;
+    @FXML
+    private Button btnEliminar;
+    
+    private Categoria selectedCategoria;
+    private ArrayList<Categoria> categorias_C;
+    
     /**
      * Initializes the controller class.
-     */
+     */ 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -76,8 +76,8 @@ public class CategoriasController implements Initializable {
     }
     
     private void loadCategorias() {
-        categorias = CategoriaDao.obtenerTodos();
-        tblCategorias.setItems(FXCollections.observableArrayList(categorias));
+        categorias_C = CategoriaDao.obtenerTodos();
+        tblCategorias.setItems(FXCollections.observableArrayList(categorias_C));
     }
     
     private Categoria loadCategoryForm(Categoria categoria, String mode) throws IOException {
@@ -120,8 +120,8 @@ public class CategoriasController implements Initializable {
     private void btnVisualizar_onclick(ActionEvent event) {
         
         try {
-            Categoria selectedCategoria = getSelectedCategoria();
-            this.loadCategoryForm(selectedCategoria, "DSP");
+            Categoria selected_Categoria = getSelectedCategoria();
+            this.loadCategoryForm(selected_Categoria, "DSP");
         } catch (IOException ex) {
             System.err.println(ex);
         }
@@ -130,14 +130,14 @@ public class CategoriasController implements Initializable {
     @FXML
     private void btnNuevo_onclick(ActionEvent event) {
         try {
-            Categoria newCategoria = new Categoria();
-            newCategoria.setNombre("");
-            newCategoria.setEstado("ACT");
-            newCategoria.setLiderCorreo("");
-            newCategoria.setDuracionMeses("");
-            newCategoria.setArea("");
-            newCategoria.setPais("");
-            this.loadCategoryForm(newCategoria, "INS");
+            Categoria new__Categoria = new Categoria();
+            new__Categoria.setNombre("");
+            new__Categoria.setEstado("ACT");
+            new__Categoria.setLiderCorreo("");
+            new__Categoria.setDuracionMeses("");
+            new__Categoria.setArea("");
+            new__Categoria.setPais("");
+            this.loadCategoryForm(new__Categoria, "INS");
         } catch (IOException ex) {
             System.err.println(ex);
         }
@@ -146,8 +146,8 @@ public class CategoriasController implements Initializable {
     @FXML
     private void btnEditar_onclick(ActionEvent event) {
         try {
-            Categoria selectedCategoria = getSelectedCategoria();
-            this.loadCategoryForm(selectedCategoria, "UPD");
+            Categoria selected_Categoria = getSelectedCategoria();
+            this.loadCategoryForm(selected_Categoria, "UPD");
         } catch (IOException ex) {
             System.err.println(ex);
         }
@@ -156,11 +156,12 @@ public class CategoriasController implements Initializable {
     @FXML
     private void btnEliminar_onclick(ActionEvent event) {
         try {
-            Categoria selectedCategoria = getSelectedCategoria();
-            this.loadCategoryForm(selectedCategoria, "DEL");
+            Categoria selected_Categoria = getSelectedCategoria();
+            this.loadCategoryForm(selected_Categoria, "DEL");
         } catch (IOException ex) {
             System.err.println(ex);
         }
     }
 }
- 
+
+

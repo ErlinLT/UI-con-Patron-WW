@@ -49,7 +49,7 @@ public class App extends Application {
         Stage modalStage = new Stage();
         modalStage.initModality(Modality.APPLICATION_MODAL);
         modalStage.setScene(modalScene);
-            modalStage.showAndWait();
+        modalStage.showAndWait();
     }
      
     public static void closeModal(ActionEvent event) {

@@ -23,37 +23,36 @@ import javafx.scene.control.ToggleGroup;
  */
 public class CategoriaController implements Initializable {
 
-
-    @FXML
-    private Button btnConfirmar;
-    @FXML
-    private Button btnCancelar;
-    @FXML
-    private RadioButton rdbActivo;
-    @FXML
-    private RadioButton rdbInactivo;
+    
     @FXML
     private Label lblTitulo;
-
-    private Categoria selectedCategoria;
-    private boolean isConfirmed = false;
-    
-    private String mode;
-    private TextField txtCategoria;
-    @FXML
-    private ToggleGroup grpEstado;
     @FXML
     private TextField txtId;
     @FXML
     private TextField txtNombre;
     @FXML
+    private RadioButton rdbActivo;
+    @FXML
+    private ToggleGroup grpEstado;
+    @FXML
+    private RadioButton rdbInactivo;
+    @FXML
+    private Button btnConfirmar;
+    @FXML
+    private Button btnCancelar;
+    @FXML
     private TextField txtLiderCorreo;
     @FXML
     private TextField txtDuracionMeses;
-    @FXML       
+    @FXML
     private TextField txtArea;
     @FXML
     private TextField txtPais;
+    
+    private Categoria selectedCategoria;
+    private boolean isConfirmed = false;
+    private String mode;
+    //private TextField txtCategoria;
     /**
      * Initializes the controller class.
      */
@@ -61,8 +60,8 @@ public class CategoriaController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
     }
 
-    public void setCategoria( Categoria categoria){
-      this.selectedCategoria = categoria;
+    public void setCategoria( Categoria catego){
+      this.selectedCategoria = catego;
       txtId.setText(String.valueOf(this.selectedCategoria.getId()));
       txtNombre.setText(this.selectedCategoria.getNombre());
       
@@ -76,20 +75,30 @@ public class CategoriaController implements Initializable {
       txtArea.setText(this.selectedCategoria.getArea());
       txtPais.setText(this.selectedCategoria.getPais());
     }
-    public void setMode(String mode) {
-      this.mode = mode;
+    public void setMode(String mode_select) {
+      this.mode = mode_select;
       txtId.setDisable(true);
       switch(this.mode){
         case "DSP":
           lblTitulo.setText("Mostrando detalle de:");
           btnConfirmar.setDisable(true);
-          txtCategoria.setDisable(true);
+          //txtCategoria.setDisable(true);
+          txtNombre.setDisable(true);
+          txtLiderCorreo.setDisable(true);
+          txtDuracionMeses.setDisable(true);
+          txtArea.setDisable(true);
+          txtPais.setDisable(true);
           rdbActivo.setDisable(true);
           rdbInactivo.setDisable(true);
           break;
         case "DEL":
           lblTitulo.setText("Eliminando:");
-          txtCategoria.setDisable(true);
+          //txtCategoria.setDisable(true);
+          txtNombre.setDisable(true);
+          txtLiderCorreo.setDisable(true);
+          txtDuracionMeses.setDisable(true);
+          txtArea.setDisable(true);
+          txtPais.setDisable(true);
           rdbActivo.setDisable(true);
           rdbInactivo.setDisable(true);
           break;
@@ -101,7 +110,7 @@ public class CategoriaController implements Initializable {
 
     @FXML
     private void btnConfirmar_onclicked(ActionEvent event) {
-        this.selectedCategoria.setNombre(txtCategoria.getText());
+        this.selectedCategoria.setNombre(txtNombre.getText());
         
         
         if (rdbActivo.isSelected()) {
@@ -109,10 +118,10 @@ public class CategoriaController implements Initializable {
         } else {
             this.selectedCategoria.setEstado("INA");
         }
-        this.selectedCategoria.setLiderCorreo(txtCategoria.getText());
-        this.selectedCategoria.setDuracionMeses(txtCategoria.getText());
-        this.selectedCategoria.setArea(txtCategoria.getText());
-        this.selectedCategoria.setPais(txtCategoria.getText());
+        this.selectedCategoria.setLiderCorreo(txtLiderCorreo.getText());
+        this.selectedCategoria.setDuracionMeses(txtDuracionMeses.getText());
+        this.selectedCategoria.setArea(txtArea.getText());
+        this.selectedCategoria.setPais(txtPais.getText());
         this.isConfirmed = true;
         App.closeModal(event);
     }

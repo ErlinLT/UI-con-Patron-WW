@@ -79,9 +79,9 @@ public class Categoria {
         this.pais = pais;
     }    
     
-    public String printString(){
-        return String.valueOf(id) + '\t' + nombre + '\t' + estado + '\t' + lidercorreo + '\t' + duracionmeses + '\t' + area + '\t' + pais ;
-    }
+   // public String printString(){
+   //     return String.valueOf(id) + '\t' + nombre + '\t' + estado + '\t' + lidercorreo + '\t' + duracionmeses + '\t' + area + '\t' + pais ;
+    //}
     
     private int id;
     private String nombre;

@@ -12,7 +12,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="255.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pmp.fx101.CategoriaController">
    <children>
-      <Label fx:id="lblTitulo" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="75.0" prefWidth="239.0" text="Nueva Persona">
+      <Label fx:id="lblTitulo" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="75.0" prefWidth="239.0" text="Nuevo">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -87,6 +87,12 @@
          </font>
       </Label>
       <TextField fx:id="txtLiderCorreo" />
+      <Label text="Duracion Meses">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtDuracionMeses" />
       <Label text="Area">
          <font>
             <Font name="System Bold" size="13.0" />
@@ -99,12 +105,6 @@
          </font>
       </Label>
       <TextField fx:id="txtPais" />
-      <Label text="Duracion Meses">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtDuracionMeses" />
    </children>
    <padding>
       <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />

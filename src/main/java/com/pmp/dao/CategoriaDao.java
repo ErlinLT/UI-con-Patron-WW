@@ -14,13 +14,13 @@ import java.sql.PreparedStatement;
  */
 public class CategoriaDao {
     public static void setup() {
-        String sqlCrearTabla = "CREATE TABLE CATEGORIASZZ"
+        String sqlCrearTabla = "CREATE TABLE IF NOT EXISTS CATEGORIAS"
                 + " (ID INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + " NOMBRE TEXT,"
-                + " ESTADO TEXT);"
-                + " LIDERCORREO TEXT);"
-                + " DURACIONMESES TEXT);"
-                + " AREA TEXT);"
+                + " ESTADO TEXT,"
+                + " LIDERCORREO TEXT,"
+                + " DURACIONMESES TEXT,"
+                + " AREA TEXT,"
                 + " PAIS TEXT);";
         try {
             Statement comando = Conexion.getConexion().createStatement();
@@ -38,15 +38,15 @@ public class CategoriaDao {
             Statement comando = Conexion.getConexion().createStatement();
             ResultSet categoriasRows = comando.executeQuery(sqlObtenerTodo);
             while (categoriasRows.next()){
-                Categoria categoria = new Categoria();
-                categoria.setId(categoriasRows.getInt("ID"));
-                categoria.setNombre(categoriasRows.getString("NOMBRE"));
-                categoria.setEstado(categoriasRows.getString("ESTADO"));
-                categoria.setLiderCorreo(categoriasRows.getString("LIDERCORREO"));
-                categoria.setDuracionMeses(categoriasRows.getString("DURACIONMESES"));
-                categoria.setArea(categoriasRows.getString("AREA"));
-                categoria.setPais(categoriasRows.getString("PAIS"));
-                categorias.add(categoria);
+                Categoria newcategoria_create = new Categoria();
+                newcategoria_create.setId(categoriasRows.getInt("ID"));
+                newcategoria_create.setNombre(categoriasRows.getString("NOMBRE"));
+                newcategoria_create.setEstado(categoriasRows.getString("ESTADO"));
+                newcategoria_create.setLiderCorreo(categoriasRows.getString("LIDERCORREO"));
+                newcategoria_create.setDuracionMeses(categoriasRows.getString("DURACIONMESES"));
+                newcategoria_create.setArea(categoriasRows.getString("AREA"));
+                newcategoria_create.setPais(categoriasRows.getString("PAIS"));
+                categorias.add(newcategoria_create);
             }
             comando.close();
             return categorias;
@@ -57,7 +57,7 @@ public class CategoriaDao {
         }
     }
     public static Categoria agregarNuevo (Categoria newCategoria) {
-        String sqlInsertCategoria = "INSERT INTO CATEGORIAS (NOMBRE, ESTADO, LIDERCORREO, DURACIONMESES, AREA, PAIS) VALUES (?, ?, ?, ?, ?, ?); ";
+        String sqlInsertCategoria = "INSERT INTO CATEGORIAS (NOMBRE, ESTADO, LIDERCORREO, DURACIONMESES, AREA, PAIS) VALUES (?, ?, ?, ?, ?, ?);";
         try {
             PreparedStatement comando = Conexion.getConexion().prepareStatement(sqlInsertCategoria);
             comando.setString(1, newCategoria.getNombre());

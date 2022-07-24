@@ -13,19 +13,16 @@ import java.sql.DriverManager;
  * 
  */
 public class Conexion {
-    private static Connection conexion = null;
-    
-    private Conexion() {}
-    
+    private static Connection conexion_new = null;
     public static Connection getConexion(){
         try {
-            if(conexion == null) {
+            if(conexion_new == null) {
                 Class.forName("org.sqlite.JDBC");
-                conexion = DriverManager.getConnection("jdbc:sqlite:test.db");
+                conexion_new = DriverManager.getConnection("jdbc:sqlite:cateogrias.db");
             }
-            return conexion;
+            return conexion_new;
         } catch(Exception ex) {
-            System.err.println("Error: " + ex.getMessage());
+            System.err.println("Error Conecction: " + ex.getMessage());
             System.exit(1);
             return null;
         }
